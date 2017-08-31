@@ -181,7 +181,7 @@ var converter = function () {
     }
 
     var local = localStorage.getItem('cubeSaved');
-    if (local !== "undefined") {
+    if (local !== "undefined" && local !== null) {
         var localStor = JSON.parse(local);
         placeholderCurrency.value = localStor.val;
         setValues(selectCurrency, localStor.first);
