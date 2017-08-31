@@ -150,6 +150,7 @@ let converter = (function() {
 
     let local = localStorage.getItem('cubeSaved');
     if (local !== "undefined") {
+        console.log(local);
         let localStor = JSON.parse(local);
         placeholderCurrency.value = localStor.val;
         setValues(selectCurrency, localStor.first);
