@@ -174,7 +174,7 @@ var converter = function() {
     }
 
     //init localStorage
-    function localStoring() {
+   function localStoring() {
         var mainObj = calculateCurrency();
         localStorage.setItem('cubeSaved', JSON.stringify(mainObj));
     }
@@ -188,7 +188,9 @@ var converter = function() {
         calculatedCurrency.value = (placeholderCurrency.value * localStor.first).toFixed(2);
     } else {
         resetValues();
-    }
+    }  
+    
+   
 
 
 
