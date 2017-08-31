@@ -1,7 +1,7 @@
 'use strict';
 
 //init app
-var converter = function () {
+var converter = function() {
 
     //caching DOM
     var mainSelector = document.getElementById('container'),
@@ -28,85 +28,86 @@ var converter = function () {
         var currVal = Number(placeholderCurrency.value),
             firstValue = getSelected(selectCurrency).value,
             secondValue = getSelected(currentCurrency).value;
-            
+
         //fetch data from api
-        var data = fetch(request).then(function (resp) {
+        var data = fetch(request).then(function(resp) {
             return resp.json();
-        }).then(function (data) {
+        }).then(function(data) {
             var mainObj = data.result;
             var eur = mainObj['eur'].pro;
             var usd = mainObj['usd'].pro;
             var rsd = 1;
-           
 
-               function calculusSmaller(cur1, cur2) {
-                 
-                      calculatedCurrency.value = parseFloat(currVal * (cur1 / cur2)).toFixed(2);
-                  
-              }
 
-              function calculusBiger(cur1,cur2) {
-      
-                      calculatedCurrency.value = parseFloat(currVal * (cur1 * cur2)).toFixed(2);
-                  
+            function calculusSmaller(cur1, cur2) {
+
+                calculatedCurrency.value = parseFloat(currVal * (cur1 / cur2)).toFixed(2);
+
+            }
+
+            function calculusBiger(cur1, cur2) {
+
+                calculatedCurrency.value = parseFloat(currVal * (cur1 * cur2)).toFixed(2);
+
+            }
+
+            //adjusting values if empty or NaN
+
+            if (!isNaN(placeholderCurrency.value)) {
+                placeholderCurrency.parentNode.removeAttribute('data-error');
+            } else {
+                placeholderCurrency.parentNode.setAttribute('data-error', 'Please enter a number');
+                currVal.replace(/[^0-9]+/g, "");
+                mainCurrency();
+            }
+
+            if (placeholderCurrency.value == "") {
+                currVal = 1;
+                mainCurrency();
+            }
+
+
+
+
+            function mainCurrency(var1, var2) {
+                var1 = firstValue;
+                var2 = secondValue;
+                switch (var1 + "|" + var2) {
+                    case "usd|rsd":
+                        calculusBiger(usd, rsd);
+                        break;
+                    case "eur|rsd":
+                        calculusBiger(eur, rsd);
+                        break;
+                    case "rsd|usd":
+                        calculusSmaller(rsd, usd);
+                        break;
+                    case "rsd|eur":
+                        calculusSmaller(rsd, eur);
+                        break;
+                    case "eur|usd":
+                        calculusSmaller(eur, usd);
+                        break;
+                    case "usd|eur":
+                        calculusSmaller(usd, eur);
+                        break;
+                    default:
+                        resetValues();
+
                 }
 
-                //adjusting values if empty or NaN
-              
-                     if (!isNaN(placeholderCurrency.value)) {
-                        placeholderCurrency.parentNode.removeAttribute('data-error');
-                      } 
-                      else {
-                        placeholderCurrency.parentNode.setAttribute('data-error', 'Please enter a number');
-                          resetValues();
-                      } 
 
-                      if (placeholderCurrency.value == "") {
-                      resetValues();
-                     }
-                
- 
-
-                          
-           function mainCurrency(var1, var2) {
-              var1 = firstValue;
-              var2  = secondValue;
-            switch(var1 + "|" + var2) {
-            case "usd|rsd":
-            calculusBiger(usd,rsd);
-            break;
-            case "eur|rsd":
-            calculusBiger(eur,rsd);
-            break;
-            case "rsd|usd":
-            calculusSmaller(rsd,usd);
-            break;
-            case "rsd|eur":
-            calculusSmaller(rsd,eur);
-            break;
-            case "eur|usd":
-            calculusSmaller(eur,usd);
-            break;
-            case "usd|eur":
-            calculusSmaller(usd,eur);
-            break;
-            default:
-            resetValues();
-          
             }
-         
-        
-    }      
-        
+
             mainCurrency();
 
 
-   
 
-        }).catch(function (err) {
+
+        }).catch(function(err) {
             console.log(err);
         });
-        return function () {
+        return function() {
             return {
                 first: firstValue,
                 second: secondValue,
@@ -116,9 +117,7 @@ var converter = function () {
     }
 
 
-  
 
-    
 
     //get option selected
     function getSelected(elem) {
@@ -154,12 +153,12 @@ var converter = function () {
                     var d = duplicate[ii];
 
                     for (var el of d.parentNode.querySelectorAll(".hide")) {
-                              el.classList.remove("hide");
-                        }
+                        el.classList.remove("hide");
+                    }
                     d.classList.add("hide");
 
 
-                   // $(duplicate[ii]).hide().siblings().show();
+                    // $(duplicate[ii]).hide().siblings().show();
                 }
             }
         }
@@ -175,7 +174,7 @@ var converter = function () {
     }
 
     //init localStorage
-   function localStoring() {
+    function localStoring() {
         var mainObj = calculateCurrency();
         localStorage.setItem('cubeSaved', JSON.stringify(mainObj));
     }
@@ -189,16 +188,16 @@ var converter = function () {
         calculatedCurrency.value = (placeholderCurrency.value * localStor.first).toFixed(2);
     } else {
         resetValues();
-    }  
-    
-   
+    }
+
+
 
     //binding events
     placeholderCurrency.addEventListener('blur', localStoring);
 
     placeholderCurrency.addEventListener('keyup', calculateCurrency);
 
-    selectCurrency.addEventListener('change', function () {
+    selectCurrency.addEventListener('change', function() {
 
         calculateCurrency();
         removeDupes(selectCurrency, currentCurrency);
@@ -206,15 +205,15 @@ var converter = function () {
 
 
 
-    currentCurrency.addEventListener('change', function () {
+    currentCurrency.addEventListener('change', function() {
         calculateCurrency();
         removeDupes(currentCurrency, selectCurrency);
     });
 
     resetButton.addEventListener('click', resetValues);
 
-    removeDupes(selectCurrency,currentCurrency);
-    
+    removeDupes(selectCurrency, currentCurrency);
+
 
     return {
 

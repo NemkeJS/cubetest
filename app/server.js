@@ -1,13 +1,12 @@
-var https = require('https'),
-    pem = require('pem'),
-    express = require('express');
+var https = require('https');
+var fs = require('fs');
 
-pem.createCertificate({days:1, selfSigned:true}, function(err, keys){
-  var app = express();
+var options = {
+  key: fs.readFileSync('key.pem'),
+  cert: fs.readFileSync('cert.pem')
+};
 
-  app.get('/',  function(req, res){
-    res.send('o hai!');
-  });
-
-  https.createServer({key: keys.serviceKey, cert: keys.certificate}, app).listen(443);
-});
+https.createServer(options, function (req, res) {
+  res.writeHead(200);
+  res.end("hello world\n");
+}).listen(8000);
