@@ -1,0 +1,22 @@
+{
+  "name": "cubetest",
+  "version": "1.0.0",
+  "description": "Junior Front End",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel --presets es2015 src -d assets/js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.0"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "file-system": "^2.2.2",
+    "hapi": "^16.5.2",
+    "http-proxy": "^1.16.2",
+    "wreck": "^12.2.3"
+  }
+}

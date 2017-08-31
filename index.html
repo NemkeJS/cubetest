@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'"> -->
+<meta name="app-name" content="Cube calculator">
+<meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.">
+<title>Cube Calculator</title>
+<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+<body>
+	<section id="container">
+		<div class="wrapper">
+			<div class="calculator">
+				<h1>Currency Convertor</h1>
+				<div class="inner">
+				<form>
+				<ul class="main-ul">
+					<li>
+					<select name="selectedCurrency">
+			  			<option class="" data="0"  value="rsd">Rsd</option>
+			  			<option class="" data = "2" value="eur" selected="selected" >Eur</option>
+			  			<option class="" data = "1" value="usd" >Usd</option>
+					</select><input value="1" type="text"  name="placeholder-currency">
+					</li>
+					<li>
+						<img src="assets/svg/swap.svg">
+					</li>
+					<li>
+					<select name="currentCurrency">
+			  			<option class="" data="0" selected="selected" value="rsd">Rsd</option>
+			  			<option class="" data="2" value="eur">Eur</option>
+			  			<option class="" data="1" value="usd">Usd</option>
+					</select><input type="text" value="1" name="calculated-currency">
+					</li>
+				</ul>
+				</form>
+				</div>
+				<button class="reset">Reset</button>
+			</div>
+		</div>
+	</section>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

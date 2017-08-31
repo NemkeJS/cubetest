@@ -1,0 +1,150 @@
+
+/*Normalize css */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+
+body {
+    background: #5fbcd3;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: Arial,Times;
+}
+
+img {
+vertical-align: middle;	
+}
+
+section#container {
+box-sizing: border-box;
+width: 100%;
+position: relative;
+}
+
+div.wrapper {
+width: 90%;
+height: 100vh;
+position: relative;
+margin:0 auto;
+}
+
+div.calculator {
+position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 50vh;
+  text-align: center;
+}
+
+div.calculator h1 {
+  text-transform: uppercase;
+  color: white;
+  font-size: 40px;
+  font-weight: normal;
+}
+
+div.inner {
+margin:50px 0px;
+}
+
+
+ul.main-ul {
+  list-style: none;
+}
+
+ul.main-ul li {
+  display: inline-block;
+  position: relative;
+}
+
+
+ul.main-ul select {
+height: 35px;
+font-size:18px;
+position: absolute;
+margin-left: -10px;
+border:0;
+background: white;
+text-transform: uppercase;
+}
+
+/*ul.main-ul select > option:nth-child(1) {
+  display: none;
+}*/
+.hide {
+  display: none;
+}
+
+
+
+ul.main-ul input[type="text"] {
+height: 33px;
+width: 200px;
+text-align: right;
+padding-right: 20px;
+background: #eeeeee;
+border:0;
+}
+
+ul.main-ul input[type="text"]:focus {
+background:rgba(251, 253, 255, 0.43);
+}
+
+
+ul.main-ul img {
+  margin:0px 40px;
+}
+
+
+
+[data-error]:after {
+content: attr(data-error);
+text-align: left;
+color: red;
+padding-top: 20px;
+position: absolute;
+width: 100%;
+left: 0px;
+}
+
+
+.reset {
+	padding: 15px 40px;
+    width: 200px;
+    border: 0;
+    background: rgba(0, 0, 0, 0.43);
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    outline: none;
+    
+}
+
+
+
+@media only screen and (max-width: 480px) {
+  div.calculator {
+    height: auto;
+  }
+  ul.main-ul li {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  [data-error]:after {
+  display: block;
+  text-align: center;
+  position: relative;
+  }
+}
+
+ 
