@@ -191,7 +191,7 @@ var converter = function () {
         resetValues();
     }  
     
-    console.log('afsa');
+   
 
     //binding events
     placeholderCurrency.addEventListener('blur', localStoring);
