@@ -51,7 +51,7 @@ var converter = function() {
 
             }
 
-            //adjusting values if empty or NaN
+            //adjusting values if empty or NaN input value
 
             if (!isNaN(placeholderCurrency.value)) {
                 placeholderCurrency.parentNode.removeAttribute('data-error');
