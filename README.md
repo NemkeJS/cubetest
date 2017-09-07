@@ -10,11 +10,11 @@ In order to start app:
 
 git clone https://github.com/NemkeJS/cubetest.git
 
-//Install all dependecies and scripts in main directory from package.json file.
+// cd cubetest Install all dependecies and scripts in main directory from package.json file.
 
 npm install
 
-//Start the node server 
+//cd cubetest Start the node server
 
 npm start
 
