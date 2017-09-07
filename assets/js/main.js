@@ -13,7 +13,7 @@ var converter = function() {
         allInputTxt = mainSelector.querySelectorAll('input[type="text"]');
 
     //url data from api 
-    var request = new Request('test.json', {
+    var request = new Request('http://localhost:3000/api/get', {
         method: 'GET',
         mode: 'cors',
         redirect: 'follow',
@@ -33,6 +33,7 @@ var converter = function() {
         var data = fetch(request).then(function(resp) {
             return resp.json();
         }).then(function(data) {
+            var data = JSON.parse(data);
             var mainObj = data.result;
             var eur = mainObj['eur'].pro;
             var usd = mainObj['usd'].pro;
