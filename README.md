@@ -1,6 +1,6 @@
 # cubetest
 
-Simple calculator app vanila Js.
+Simple calculator app native Js.
 
 Only framework needed is for Node.js (express.js) and dependecy (request for https) included in package.json as dependencies. 
 
