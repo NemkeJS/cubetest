@@ -12,7 +12,7 @@ git clone https://github.com/NemkeJS/cubetest.git
 
 npm install
 
-//Start the server 
+//Start the node server 
 
 npm start
 
